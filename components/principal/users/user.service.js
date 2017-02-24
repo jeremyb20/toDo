@@ -14,6 +14,7 @@
 
     function _setUsers(pUser){
       users.push(pUser);
+        alert('Registrado!');
     }
 
     function _getUsers(){

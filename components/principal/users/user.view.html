@@ -47,6 +47,14 @@
                 <div ng-message="required">This is required.</div>
               </div>
             </md-input-container>
+              
+              <md-input-container md-padding="20px" class="md-block">
+              <label> Confirm Password </label>
+              <input ng-model="userCtrl.password2" type="password" name="password2" required="" class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"  id="input_2" tabindex="0" aria-required="true" aria-invalid="true">
+              <div ng-messages="projectForm.clientName.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
 
             <div>
               <md-button class="md-padding" ng-click="userCtrl.save()" type="submit">Registrer</md-button>

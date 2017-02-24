@@ -11,17 +11,23 @@
       }init();
       userCtrl.save= function(){
 
-        var newUser ={
-          name : userCtrl.name,
-          birthDate : new Date(userCtrl.birthDate) ,
-          age : userCtrl.calculateAge(userCtrl.birthDate),
-          email: userCtrl.email,
-          password: userCtrl.password
-
+        if(userCtrl.password === userCtrl.password2 && userCtrl.password != null && userCtrl.password2 != null ){
+              var newUser ={
+              name : userCtrl.name,
+              birthDate : new Date(userCtrl.birthDate) ,
+              age : userCtrl.calculateAge(userCtrl.birthDate),
+              email: userCtrl.email,
+              password: userCtrl.password
+                  
+            }
+            userService.setUsers(newUser);
+            
+        }else{
+            alert('Contrasenna Inválida');
         }
-
-
-        userService.setUsers(newUser);
+        
+        
+    
 
       }
       userCtrl.calculateAge = function(birthday) { // pass in player.dateOfBirth
