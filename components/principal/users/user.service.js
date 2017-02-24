@@ -14,15 +14,14 @@
 
     function _setUsers(pUser){
       users.push(pUser);
+      localStorage.setItem('mUserLocal',JSON.stringify(users));
         alert('Registrado!');
     }
 
     function _getUsers(){
+      var userLocal = JSON.parse(localStorage.getItem('mUserLocal'));
       return users;
     }
-
-
-
   }
 
 })();
