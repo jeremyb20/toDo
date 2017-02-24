@@ -1,0 +1,48 @@
+<form>
+  <md-input-container flex="50">
+    <label>Company name:</label>
+      <md-select name="type" ng-model="companyCtrl.companyName" required="">
+      <md-option value="{{objCompany.taskName}}" ng-repeat="objCompany in companyCtrl.task">{{objCompany.taskName}}</md-option>
+      </md-select>
+  </md-input-container>        
+
+        <md-input-container md-padding="20px" class="md-block">
+              <label>Business:</label>
+              <input required="" name="clientName" ng-model="companyCtrl.business">
+              <div ng-messages="projectForm.clientName.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+        </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Location:</label>
+        <input md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="companyCtrl.location">
+        <div ng-messages="projectForm.description.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+        </div>
+    </md-input-container>
+
+      <div>
+        <md-button type="submit" ng-click="companyCtrl.save()">Register</md-button>
+      </div>
+</form>
+
+<!-- <table id="tblCompany">
+  <thead>
+    <tr>
+      <th>Company name</th>
+      <th>Business</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="company in companyCtrl.companies">
+        <td>{{company.companyName}}</td>
+        <td>{{company.business}}</td>
+        <td>{{company.location}}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<div ui-view></div>

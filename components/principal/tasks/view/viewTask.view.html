@@ -1,0 +1,39 @@
+<div layout="column" ng-cloak="" class="inputdemoErrors" ng-app="MyApp">
+  <md-content layout-padding="">
+    <div class="container" layout="row" flex>
+      <md-sidenav md-is-locked-open="true" class="md-primary" class="md-whiteframe-4dp">
+          <button ui-sref="principal.task"> Create Task</button>
+          <button ui-sref ="principal.viewTask">View Task</button>
+          <button ui-sref="principal.company"> Add company</button>
+      </md-sidenav>
+  <md-content class="md-padding" flex>
+    <table id="tblTasks">
+      <thead>
+        <tr>
+          <th>Task name</th>
+          <th>Description</th>
+          <th>Task date</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Cost</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="objViewTask in viewTaskCtrl.tasks">
+            <td value="{{objViewTask.taskName}}">{{objViewTask.taskName}}</td>
+            <td value="{{objViewTask.description}}">{{objViewTask.description}}</td>
+            <td value="{{objViewTask.taskDate}}">{{objViewTask.taskDate}}</td>
+            <td value="{{objViewTask.priority}}">{{objViewTask.priority}}</td>
+            <td value="{{objViewTask.status}}">{{objViewTask.status}}</td>
+            <td value="{{objViewTask.cost}}">{{objViewTask.cost}}</td>
+            <td value="{{objViewTask.company}}">{{objViewTask.company}}</td>
+        </tr>
+      </tbody>
+    </table>
+</md-content>
+</div>
+</md-content>
+</div>
+
+<div ui-view></div>

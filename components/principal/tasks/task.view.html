@@ -1,0 +1,117 @@
+<div layout="column" ng-cloak="" class="inputdemoErrors bag" ng-app="MyApp">
+  <md-content layout-padding="">
+    <div class="container" layout="row" flex>
+      <md-sidenav md-is-locked-open="true" class="md-primary" class="md-whiteframe-4dp">
+          <button ui-sref="principal.task"> Create Task</button>
+          <button ui-sref ="principal.viewTask">View Task</button>
+          <button ui-sref="principal.company"> Add company</button>
+      </md-sidenav>
+
+      <md-content class="md-padding" flex>
+      <form name="projectForm" class="container md-padding">
+        <h2>Create Task</h2>
+        <md-input-container class="md-block">
+              <label>Task name:</label>
+              <input md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="taskCtrl.taskName">
+              <div ng-messages="projectForm.description.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+              <label>Description:</label>
+              <input md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="taskCtrl.description">
+              <div ng-messages="projectForm.description.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+              </div>
+          </md-input-container>
+
+          <div layout="row">
+            <md-input-container class="md-block">
+              <label>Task date:</label>
+              <md-datepicker ng-model="taskCtrl.taskDate" md-placeholder="Enter date"></md-datepicker>
+              </md-input-container>
+          </div>
+
+              <md-input-container  class="md-block">
+                <label>Priority:</label>
+                <md-select name="type" ng-model="taskCtrl.priority" required="">
+                  <md-option value="high">High</md-option>
+                  <md-option value="medium">Medium</md-option>
+                  <md-option value="less">Less</md-option>
+                </md-select>
+              </md-input-container>
+
+            <md-input-container  class="md-block">
+                <label>State:</label>
+                <md-select name="type" ng-model="taskCtrl.status" required="">
+                  <md-option value="pending">Pending</md-option>
+                  <md-option value="active">Active</md-option>
+                  <md-option value="donde">Done</md-option>
+                </md-select>
+              </md-input-container>
+
+          <md-input-container class="md-block">
+              <label>Cost: (USD)</label>
+              <input required="" type="number" step="any" name="rate" ng-model="taskCtrl.cost" min="800" max="4999" ng-pattern="/^1234$/">
+
+              <div ng-messages="projectForm.rate.$error" multiple="" md-auto-hide="false">
+                <div ng-message="required">
+                  You've got to charge something! You can't just <b>give away</b> a Missile Defense
+                  System.
+                </div>
+
+                <div ng-message="min">
+                  You should charge at least $800 an hour. This job is a big deal... if you mess up,
+                  everyone dies!
+                </div>
+              </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+              <label>Company name:</label>
+              <input md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="taskCtrl.company">
+              <div ng-messages="projectForm.description.$error">
+                <div ng-message="required">This is required.</div>
+                <div ng-message="md-maxlength">The description must be less than 30 characters long.</div>
+              </div>
+          </md-input-container>
+
+            <div>
+              <md-button ng-click="taskCtrl.save()" type="submit">Submit</md-button>
+            </div>
+      </form>
+     </md-content>
+    </div>
+  </md-content>
+</div>
+
+
+<!-- <table id="tblTasks">
+  <thead>
+    <tr>
+      <th>Task name</th>
+      <th>Description</th>
+      <th>Task date</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Cost</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="task in taskCtrl.tasks">
+        <td>{{task.taskName}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.taskDate}}</td>
+        <td>{{task.priority}}</td>
+        <td>{{task.status}}</td>
+        <td>{{task.cost}}</td>
+        <td>{{task.company}}</td>
+    </tr>
+  </tbody>
+</table>
+ -->
+<div ui-view></div>

@@ -1,0 +1,65 @@
+<div layout="column" ng-cloak="" class="inputdemoErrors" ng-app="MyApp">
+  <md-content layout-padding="">
+    <div class="container" layout="row" flex>
+      <md-sidenav md-is-locked-open="true" class="md-primary" class="md-whiteframe-4dp">
+        <h2>ToDoApp</h2>
+        <p>Your new tool for tasks control</p>
+      </md-sidenav>
+
+      <md-content class="md-padding" flex>
+          <button ui-sref="user"> Sign in</button>
+          <button ui-sref="logIn"> Log In</button>
+          <form name="projectForm" class="container md-pad" flex="50">
+            <md-input-container md-padding="20px" class="md-block">
+              <label>Name:</label>
+              <input required="" name="clientName" ng-model="userCtrl.name">
+              <div ng-messages="projectForm.clientName.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
+
+            <md-input-container  class="md-block">
+                <i class="mdi mdi-bell"></i> 
+                <md-input-container>
+                  <label>Birth Date:</label>
+                    <md-datepicker md-width="12%" ng-model="userCtrl.birthDate" md-placeholder="Enter date"></md-datepicker>
+                    <div ng-messages="projectForm.clientName.$error">
+                       <div ng-message="required">This is required.</div>
+                    </div>
+                </md-input-container>
+            </md-input-container>
+
+            <md-input-container>
+              <label>Email</label>
+              <input required="" type="email" name="clientEmail" ng-model="userCtrl.email" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/">
+
+              <div ng-messages="projectForm.clientEmail.$error" role="alert">
+                <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                  Your email must be between 10 and 100 characters long and look like an e-mail address.
+                </div>
+              </div>
+            </md-input-container>
+
+            <md-input-container md-padding="20px" class="md-block">
+              <label> Password </label>
+              <input ng-model="userCtrl.password" type="password" name="password" required="" class="ng-pristine md-input ng-invalid ng-invalid-required ng-touched"  id="input_1" tabindex="0" aria-required="true" aria-invalid="true">
+              <div ng-messages="projectForm.clientName.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
+
+            <div>
+              <md-button class="md-padding" ng-click="userCtrl.save()" type="submit">Registrer</md-button>
+            </div>
+          </form>
+          </md-content>
+        </div> 
+      </md-content> 
+</div>
+
+<div ui-view></div>
+
+<!-- <button ui-sref="logIn"> view 1</button>
+<button ui-sref="user.view2"> view 2</button>
+
+<div ui-view></div> -->
